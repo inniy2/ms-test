@@ -57,7 +57,7 @@ mysql> mv data data_`date +%Y-%m-%d`
 mysql> mv binlog binlog_`date +%Y-%m-%d`
 mysql> mv innodb innodb_`date +%Y-%m-%d`
 mysql> mv innodb-log innodb-log_`date +%Y-%m-%d`
-mysql> mv var/my_$mysql_instance_name.cnf my_$mysql_instance_name.`date +%Y-%m-%d`
+mysql> mv var/my_$mysql_instance_name.cnf var/my_$mysql_instance_name.`date +%Y-%m-%d`
 ```
 
 5. Stop master 
