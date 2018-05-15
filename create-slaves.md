@@ -191,10 +191,25 @@ mysql> CHANGE MASTER TO \
 mysql> start slave;
 ```
 
-99. Finish up work
+100. Finish up work
 ```
 unset http_proxys; unset http_proxy
 ```
+
+101. Delete backup directories on slaves
+```
+mysql> if exits ( ls -al /MYSQL/$mysql_instance_name/data_`date +%Y-%m-%d`)
+       then: rm -rf /MYSQL/$mysql_instance_name/data_`date +%Y-%m-%d`
+mysql> if exits ( ls -al /MYSQL/$mysql_instance_name/binlog_`date +%Y-%m-%d`)
+       then: rm -rf /MYSQL/$mysql_instance_name/binlog_`date +%Y-%m-%d`
+mysql> if exits ( ls -al /MYSQL/$mysql_instance_name/innodb_`date +%Y-%m-%d`)
+       then: rm -rf /MYSQL/$mysql_instance_name/innodb_`date +%Y-%m-%d`
+mysql> if exits ( ls -al /MYSQL/$mysql_instance_name/innodb-log_`date +%Y-%m-%d`)
+       then: rm -rf /MYSQL/$mysql_instance_name/innodb-log_`date +%Y-%m-%d`
+mysql> if exits ( ls -al /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.`date +%Y-%m-%d`)
+       then: rm -rf /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.`date +%Y-%m-%d`
+```
+
 
 
 
