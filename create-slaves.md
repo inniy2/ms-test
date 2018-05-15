@@ -87,9 +87,11 @@ Create git repository if there is no repository
 Setup git for the first time
 ```
 root> cd /usr/local/src
-root> if not exists ( ls -al $git_repository_name ) 
-      then: mkdir $git_repository_name && cd $git_repository_name
+root> if not exists ( ls -al git) 
+      then: mkdir git && cd git
             export http_proxy=http://dev-proxy.db.rakuten.co.jp:9501 ; export https_proxy=https://dev-proxy.db.rakuten.co.jp:9501
+            git config --global user.name "Bae, SangSun | Sunny | OPS"
+            git config --global user.email "sangsun.bae@rakuten.com"
             git clone https://sangsun.bae@git.rakuten-it.com/scm/ops-dba/$git_repository_name.git
 ```
 
