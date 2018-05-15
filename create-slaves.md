@@ -71,7 +71,17 @@ mysql> tail -f $mysql_error_log_file
 root > ~mysql/script/my_server.sh stop $mysql_instance_name
 ```
 
-6. Copy data from master
+6. Rmove previous data on slaves if exists
+```
+root> cd $working_directory
+root> rm -rf ./data
+root> rm -rf ./binlog
+root> rm -rf ./innodb
+root> rm -rf ./innodb-log
+root> rm -rf ./my_$mysql_instance_name.cnf
+```
+
+7. Copy data from master
 ```
 root> loop ( echo $slave_hostname ) 
       scp -r /MYSQL/$mysql_instance_name/data          baesangsun01@$slave_hostname:$working_directory
@@ -80,7 +90,7 @@ root> loop ( echo $slave_hostname )
       scp -r /MYSQL/$mysql_instance_name/innodb-log    baesangsun01@$slave_hostname:$working_directory
       scp -r /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf    baesangsun01@$slave_hostname:$working_directory
 ```
-7. Modify master configuration if necessary
+8. Modify master configuration if necessary
 
 Create git repository if there is no repository
 
@@ -116,14 +126,14 @@ root> git add . && git commit -m 'modified my.cnf'
 root> git push -u origin master
 ```
 
-8. Start up the master & start replication
+9. Start up the master & start replication
 ```
 mysql> tail -f $mysql_error_log_file
 root > ~mysql/script/my_server.sh start $mysql_instance_name
 mysql> echo " start slave " | mysql
 ```
 
-9. Restore directories
+10. Restore directories
 ```
 root> mv $working_directory/data        /MYSQL/$mysql_instance_name/
 root> mv $working_directory/binlog      /MYSQL/$mysql_instance_name/
