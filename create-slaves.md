@@ -31,7 +31,7 @@ export slave_hostname=
 export mysql_instance_name=cloud101
 export mysql_start_script=/usr/local/mysql/script/my_server.sh
 export mysql_error_log_file=/MYSQL/$mysql_instance_name/log/$mysql_instance_name.err
-export working_dir=/MYSQL/$mysql_instance_name/work/work_bae
+export working_directory=/MYSQL/$mysql_instance_name/work/work_bae
 ```
 
 3. Create working directory common
