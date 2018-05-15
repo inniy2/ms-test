@@ -72,7 +72,7 @@ root > ~mysql/script/my_server.sh stop $mysql_instance_name
 
 6. Copy data from master
 ```
-root> loop ( cat $slave_hostname ) 
+root> loop ( echo $slave_hostname ) 
       scp -r /MYSQL/$mysql_instance_name/data          baesangsun01@$slave_hostname:$working_directory
       scp -r /MYSQL/$mysql_instance_name/binlog        baesangsun01@$slave_hostname:$working_directory
       scp -r /MYSQL/$mysql_instance_name/innodb        baesangsun01@$slave_hostname:$working_directory
