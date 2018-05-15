@@ -98,15 +98,15 @@ root> if not exists ( ls -al git)
 Copy  my.cnf file for modification
 ```
 root> git pull origin master
-root> cp    /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   ./my_$mysql_instance_name.cnf.`hostname`
-root> diff  /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   ./my_$mysql_instance_name.cnf.`hostname`
+root> cp    /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   $git_repository_name/my_$mysql_instance_name.cnf.`hostname`
+root> diff  /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   $git_repository_name/my_$mysql_instance_name.cnf.`hostname`
 ```
 
 Modify my.cnf using vim 
 ```
-root> vim   ./my_$mysql_instance_name.cnf.`hostname`
-root> diff  ./my_$mysql_instance_name.cnf.`hostname`     /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf
-root> cp    ./my_$mysql_instance_name.cnf.`hostname`     /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf
+root> vim   $git_repository_name/my_$mysql_instance_name.cnf.`hostname`
+root> diff  $git_repository_name/my_$mysql_instance_name.cnf.`hostname`     /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf
+root> cp    $git_repository_name/my_$mysql_instance_name.cnf.`hostname`     /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf
 ```
 
 Push to master
