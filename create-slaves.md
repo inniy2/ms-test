@@ -4,9 +4,11 @@ This method works under the following condition
 
 1. The master instance can be shut downed.
 
-2. The master and slaves share the same directory architecture.
+2. The master is also slave of another master.
 
-3. The master and slaves must be same MySQL version.
+3. The master and slaves share the same directory architecture.
+
+4. The master and slaves must be same MySQL version.
 
 ## Procedure status
 This procedure has been used for the following operation.
@@ -146,10 +148,35 @@ root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/innodb
 root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/innodb-log
 ```
 
+11. Modify slaves configuration if necessary
+```
+Go to 8 and use the procedure 
+```
 
+12. Delete auto.cnf on slaves
+```
+mysql> if exists ( ls -al /MYSQL/$mysql_instance_name/data/auto.cnf )
+       then: rm -rf /MYSQL/$mysql_instance_name/data/auto.cnf
+```
 
+13. Start up slaves
+```
+mysql> tail -f $mysql_error_log_file
+root > ~mysql/script/my_server.sh start $mysql_instance_name
+```
 
-
+14. Reset replication
+```
+mysql> reset slave all;
+mysql> 
+CHANGE MASTER TO \
+MASTER_HOST='' \
+MASTER_USER='repl' \
+MASTER_PASSWORD='' \
+MASTER_LOG_FILE='' \
+MASTER_LOG_POS='' \
+mysql> start slave;
+```
 
 99. Finish up work
 ```
