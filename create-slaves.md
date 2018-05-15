@@ -89,6 +89,7 @@ Setup git for the first time
 root> cd /usr/local/src
 root> if not exists ( ls -al $git_repository_name ) 
       then: mkdir $git_repository_name && cd $git_repository_name
+            export http_proxy=http://dev-proxy.db.rakuten.co.jp:9501 ; export https_proxy=https://dev-proxy.db.rakuten.co.jp:9501
             git clone https://sangsun.bae@git.rakuten-it.com/scm/ops-dba/$git_repository_name.git
 ```
 
@@ -133,6 +134,14 @@ root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/innodb-log
 ```
 
 
+
+
+
+
+99. Finish up work
+```
+unset http_proxys; unset http_proxy
+```
 
 
 
