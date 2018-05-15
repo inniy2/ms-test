@@ -45,8 +45,8 @@ root > if not exists ( ls -al $working_directory )
 mysql> tail -f $mysql_error_log_file
 mysql> echo " set global innodb_fast_shutdown = 0  " | mysql
 mysql> echo " stop slave " | mysql
-mysql> echo " show master status\G | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
-mysql> echo " show slave status\G  | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
+mysql> echo " show master status\G " | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
+mysql> echo " show slave status\G  " | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
 root > ~mysql/script/my_server.sh stop $mysql_instance_name
 ```
 
@@ -65,8 +65,8 @@ mysql> mv var/my_$mysql_instance_name.cnf my_$mysql_instance_name.`date +%Y-%m-%
 mysql> tail -f $mysql_error_log_file
 mysql> echo " set global innodb_fast_shutdown = 0  " | mysql
 mysql> echo " stop slave " | mysql
-mysql> echo " show master status\G | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
-mysql> echo " show slave status\G  | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
+mysql> echo " show master status\G " | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
+mysql> echo " show slave status\G  " | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
 root > ~mysql/script/my_server.sh stop $mysql_instance_name
 ```
 
