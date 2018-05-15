@@ -142,10 +142,10 @@ root> mv $working_directory/binlog      /MYSQL/$mysql_instance_name/
 root> mv $working_directory/innodb      /MYSQL/$mysql_instance_name/
 root> mv $working_directory/innodb-log  /MYSQL/$mysql_instance_name/
 
-root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/data
-root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/binlog
-root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/innodb
-root> chown -R mysql:mysql $/MYSQL/$mysql_instance_name/innodb-log
+root> chown -R mysql:mysql /MYSQL/$mysql_instance_name/data
+root> chown -R mysql:mysql /MYSQL/$mysql_instance_name/binlog
+root> chown -R mysql:mysql /MYSQL/$mysql_instance_name/innodb
+root> chown -R mysql:mysql /MYSQL/$mysql_instance_name/innodb-log
 ```
 
 11. Modify slaves configuration if necessary
