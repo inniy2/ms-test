@@ -167,7 +167,7 @@ root > ~mysql/script/my_server.sh start $mysql_instance_name
 
 14. Reset replication
 ```
-mysql> mysql -h $master_hostname -u repl -p P3301
+mysql> mysql -h $master_hostname -u repl -p -P3301
 
 mysql> if master does have repl user
        then: 
@@ -183,6 +183,7 @@ mysql> CHANGE MASTER TO \
 	MASTER_HOST='' ,\
 	MASTER_USER='repl' ,\
 	MASTER_PASSWORD='' ,\
+        MASTER_PORT=3301 ,\
 	MASTER_LOG_FILE='' ,\
 	MASTER_LOG_POS=  ;
 mysql> start slave;
