@@ -169,11 +169,11 @@ root > ~mysql/script/my_server.sh start $mysql_instance_name
 ```
 mysql> reset slave all;
 mysql> CHANGE MASTER TO \
-	MASTER_HOST='' \
-	MASTER_USER='repl' \
-	MASTER_PASSWORD='' \
-	MASTER_LOG_FILE='' \
-	MASTER_LOG_POS= \
+	MASTER_HOST='' ,\
+	MASTER_USER='repl' ,\
+	MASTER_PASSWORD='' ,\
+	MASTER_LOG_FILE='' ,\
+	MASTER_LOG_POS=  ;
 mysql> start slave;
 ```
 
