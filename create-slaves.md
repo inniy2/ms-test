@@ -117,6 +117,7 @@ root> diff  /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   ./my_$
 
 Modify my.cnf using vim 
 ```
+root> cd /usr/local/src/git/$git_repository_name
 root> git pull origin master
 root> vim   ./my_$mysql_instance_name.cnf.`hostname`
 root> diff  ./my_$mysql_instance_name.cnf.`hostname`     /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf
