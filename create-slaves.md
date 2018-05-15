@@ -88,7 +88,7 @@ Setup git for the first time
 ```
 root> cd /usr/local/src
 root> if not exists ( ls -al $git_repository_name ) 
-      then: mkdir $git_repository_name
+      then: mkdir $git_repository_name && cd $git_repository_name
             git clone https://sangsun.bae@git.rakuten-it.com/scm/ops-dba/$git_repository_name.git
 ```
 
