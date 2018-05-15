@@ -173,7 +173,7 @@ mysql> CHANGE MASTER TO \
 	MASTER_USER='repl' \
 	MASTER_PASSWORD='' \
 	MASTER_LOG_FILE='' \
-	MASTER_LOG_POS='' \
+	MASTER_LOG_POS= \
 mysql> start slave;
 ```
 
