@@ -97,7 +97,7 @@ root> if not exists ( ls -al git)
 
 Copy  my.cnf file for modification
 ```
-root> cd /usr/local/src/$git_repository_name
+root> cd /usr/local/src/git/$git_repository_name
 root> git pull origin master
 root> cp    /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   ./my_$mysql_instance_name.cnf.`hostname`
 root> diff  /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf   ./my_$mysql_instance_name.cnf.`hostname`
