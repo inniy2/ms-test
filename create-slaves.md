@@ -42,11 +42,11 @@ root > if not exists ( ls -al $working_directory )
 
 4. Stop instances on slaves
 ```
-mysql> tail -f $mysql_error_log_file
 mysql> echo " set global innodb_fast_shutdown = 0  " | mysql
 mysql> echo " stop slave " | mysql
 mysql> echo " show master status\G " | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
 mysql> echo " show slave status\G  " | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
+mysql> tail -f $mysql_error_log_file
 root > ~mysql/script/my_server.sh stop $mysql_instance_name
 ```
 
@@ -62,17 +62,17 @@ mysql> mv var/my_$mysql_instance_name.cnf var/my_$mysql_instance_name.`date +%Y-
 
 5. Stop master 
 ```
-mysql> tail -f $mysql_error_log_file
 mysql> echo " set global innodb_fast_shutdown = 0  " | mysql
 mysql> echo " stop slave " | mysql
 mysql> echo " show master status\G " | mysql > $working_directory/master_status_`date +%Y-%m-%d`.log
 mysql> echo " show slave status\G  " | mysql > $working_directory/slave_status_`date +%Y-%m-%d`.log
+mysql> tail -f $mysql_error_log_file
 root > ~mysql/script/my_server.sh stop $mysql_instance_name
 ```
 
 6. Copy data from master
 ```
-root> loop ( ls -al $slave_hostname ) 
+root> loop ( cat $slave_hostname ) 
       scp -r /MYSQL/$mysql_instance_name/data          baesangsun01@$slave_hostname:$working_directory
       scp -r /MYSQL/$mysql_instance_name/binlog        baesangsun01@$slave_hostname:$working_directory
       scp -r /MYSQL/$mysql_instance_name/innodb        baesangsun01@$slave_hostname:$working_directory
