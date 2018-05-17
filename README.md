@@ -1,14 +1,23 @@
 ## ms202  
-![Architecture](https://github.com/inniy2/ms202/blob/master/READMD.png | width=100)  
+- - - -   
+![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/png/READMD.png)  
 
 
-![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/READMD.png)  
+- - - -   
+![Architecture](png/READMD.png)  
 
 
+- - - -   
 ![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/READMD.png | width=250)  
 
 
-![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/README.pptx)  
+- - - -   
+![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/pptx/README.pptx)  
+
+
+
+- - - -   
+![Architecture](pptx/README.pptx)  
 
 
 
