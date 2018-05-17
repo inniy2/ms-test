@@ -8,6 +8,12 @@ Number | Hostname
 
 
 - - - -   
+##### Page List  
+[How to create slaves](docs/create-slaves.md)  
+
+
+- - - -   
+##### Architecture  
 ![Architecture](https://raw.githubusercontent.com/inniy2/ms202/master/png/READMD.png)  
 
 
