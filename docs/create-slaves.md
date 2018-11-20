@@ -22,7 +22,7 @@ Preparation for slaves
 ```
 root > su mysql
 mysql> bash
-mysql> source /MYSQL/cloud101/env/cloud101.sh
+mysql> source /MYSQL/XXXXX/env/XXXXX.sh
 
 ```
 
@@ -31,7 +31,7 @@ mysql> source /MYSQL/cloud101/env/cloud101.sh
 export master_hostname=
 export slave_hostname=
 export git_repository_name=ms202
-export mysql_instance_name=cloud101
+export mysql_instance_name=XXXXX
 export mysql_start_script=/usr/local/mysql/script/my_server.sh
 export mysql_error_log_file=/MYSQL/$mysql_instance_name/log/$mysql_instance_name.err
 export working_directory=/MYSQL/$mysql_instance_name/work/work_bae
@@ -86,11 +86,11 @@ root> rm -rf ./my_$mysql_instance_name.cnf
 7. Copy data from master
 ```
 root> loop ( echo $slave_hostname ) 
-      scp -r /MYSQL/$mysql_instance_name/data          baesangsun01@$slave_hostname:$working_directory
-      scp -r /MYSQL/$mysql_instance_name/binlog        baesangsun01@$slave_hostname:$working_directory
-      scp -r /MYSQL/$mysql_instance_name/innodb        baesangsun01@$slave_hostname:$working_directory
-      scp -r /MYSQL/$mysql_instance_name/innodb-log    baesangsun01@$slave_hostname:$working_directory
-      scp -r /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf    baesangsun01@$slave_hostname:$working_directory
+      scp -r /MYSQL/$mysql_instance_name/data          XXXXX@$slave_hostname:$working_directory
+      scp -r /MYSQL/$mysql_instance_name/binlog        XXXXX@$slave_hostname:$working_directory
+      scp -r /MYSQL/$mysql_instance_name/innodb        XXXXX@$slave_hostname:$working_directory
+      scp -r /MYSQL/$mysql_instance_name/innodb-log    XXXXX@$slave_hostname:$working_directory
+      scp -r /MYSQL/$mysql_instance_name/var/my_$mysql_instance_name.cnf    XXXXX@$slave_hostname:$working_directory
 ```
 8. Modify master configuration if necessary
 
@@ -101,10 +101,10 @@ Setup git for the first time
 root> cd /usr/local/src
 root> if not exists ( ls -al git) 
       then: mkdir git && cd git
-            export http_proxy=http://dev-proxy.db.rakuten.co.jp:9501 ; export https_proxy=https://dev-proxy.db.rakuten.co.jp:9501
-            git config --global user.name "Bae, SangSun | Sunny | OPS"
-            git config --global user.email "sangsun.bae@rakuten.com"
-            git clone https://sangsun.bae@git.rakuten-it.com/scm/ops-dba/$git_repository_name.git
+            export http_proxy=http://dev-proxy.db.XXXXX.co.jp:XXXXX ; export https_proxy=https://dev-proxy.db.XXXXX.co.jp:XXXXX
+            git config --global user.name "XXXXX XXXXX | Sunny | XXXXX"
+            git config --global user.email "XXXXX.bae@XXXXX.com"
+            git clone https://XXXXX.bae@git.XXXXX-it.com/scm/XXXXX/$git_repository_name.git
 ```
 
 Copy  my.cnf file for modification
